@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This project file has been saved by the New GreatSPN Editor, v.100 --><project name="graphrew" version="121">
+  <gspn name="CPN" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" name="Edge" x="12.0" y="2.0"/>
+      <place domain="N" label-y="-2.0" name="Node" x="26.0" y="2.0"/>
+      <transition guard=" n1!=n3" guard-x="-3.0" guard-y="0.0" label-y="1.5" name="R1" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="12.55" y="11.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="1.4375" y="16.0"/>
+      <color-class definition="N*N" name="E" x="12.25" y="16.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="1.5625" y="20.0"/>
+      <color-var domain="N" name="n1" x="1.8125" y="18.0"/>
+      <color-var domain="N" name="n2" x="6.9375" y="18.0"/>
+      <color-var domain="N" name="n3" x="11.9375" y="18.0"/>
+    </nodes>
+    <edges>
+      <arc head="R1" kind="INPUT" mult="&lt;n1,n2&gt;+&lt;n2,n3&gt;" mult-k="0.50009765625" mult-x="-9.0" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2&gt;+&lt;n2,n3&gt;+&lt;n1,n3&gt;" mult-x="-5.975217859126911" mult-y="-0.2128267886903643" tail="R1">
+        <point x="10.0" y="7.5"/>
+      </arc>
+      <arc head="R1" kind="INHIBITOR" mult="&lt;n1,n3&gt;" mult-x="2.1940684999338647" mult-y="-0.06392171436129779" tail="Edge">
+        <point x="16.5" y="7.0"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1+n2+n3&gt;" mult-k="0.42255859375000004" mult-x="2.0" mult-y="2.0" tail="R1"/>
+      <arc head="R1" kind="INPUT" mult="&lt;n1+n2+n3&gt;" mult-k="0.34248046874999993" mult-x="2.1982421875" mult-y="2.2215820312499996" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="SWN" show-fluid-cmd="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" marking="&lt;nd1,nd2&gt;+&lt;nd2,nd3&gt;+&lt;nd2,nd4&gt;+&lt;nd3,nd1&gt;" name="Edge" x="14.0" y="5.0"/>
+      <place domain="N" label-y="-2.0" marking="&lt;nd1+nd2+nd3+nd4&gt;" name="Node" x="28.0" y="5.0"/>
+      <transition guard-x="-3.0" guard-y="0.0" label-y="1.5" name="R1" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="14.55" y="14.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="3.4375" y="19.0"/>
+      <color-class definition="N*N" name="E" x="14.25" y="19.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="3.5625" y="23.0"/>
+      <color-var domain="N" name="n1" x="3.8125" y="21.0"/>
+      <color-var domain="N" name="n2" x="8.9375" y="21.0"/>
+      <color-var domain="N" name="n3" x="13.9375" y="21.0"/>
+    </nodes>
+    <edges>
+      <arc head="R1" kind="INPUT" mult="&lt;n1,n2&gt;+&lt;n2,n3&gt;" mult-k="0.50009765625" mult-x="-9.0" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2&gt;+&lt;n2,n3&gt;+&lt;n1,n3&gt;" mult-x="-5.975217859126911" mult-y="-0.2128267886903643" tail="R1">
+        <point x="12.0" y="10.5"/>
+      </arc>
+      <arc head="R1" kind="INHIBITOR" mult="&lt;n1,n3&gt;" mult-x="2.1940684999338647" mult-y="-0.06392171436129779" tail="Edge">
+        <point x="18.5" y="10.0"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1+n2+n3&gt;" mult-k="0.42255859375000004" mult-x="2.0" mult-y="2.0" tail="R1"/>
+      <arc head="R1" kind="INPUT" mult="&lt;n1+n2+n3&gt;" mult-k="0.34248046874999993" mult-x="2.1982421875" mult-y="2.2215820312499996" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="SWN 1" show-fluid-cmd="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" marking="&lt;nd1,nd2&gt;+&lt;nd2,nd3&gt;+&lt;nd2,nd1&gt;+&lt;nd3,nd3&gt;+&lt;nd4,nd4&gt;" name="Edge" x="16.0" y="7.0"/>
+      <place domain="N" label-y="-2.0" marking="&lt;nd1+nd2+nd3+nd4&gt;" name="Node" x="30.0" y="7.0"/>
+      <transition label-y="1.5" name="R2" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="16.55" y="16.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="5.4375" y="21.0"/>
+      <color-class definition="N*N" name="E" x="16.25" y="21.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="5.5625" y="25.0"/>
+      <color-var domain="N" name="n1" x="5.8125" y="23.0"/>
+      <color-var domain="N" name="n2" x="10.9375" y="23.0"/>
+      <color-var domain="N" name="n3" x="15.9375" y="23.0"/>
+    </nodes>
+    <edges>
+      <arc head="R2" kind="INHIBITOR" mult="&lt;n1,All&gt;+&lt;All-n1,n1&gt;" mult-x="-6.5" mult-y="-0.09181461809498792" tail="Edge">
+        <point x="17.0" y="15.0"/>
+      </arc>
+      <arc head="R2" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.49091796874999993" mult-x="1.2947265624999993" mult-y="1.4176757812500007" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="CPN 1" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" name="Edge" x="14.0" y="2.0"/>
+      <place domain="N" label-y="-2.0" name="Node" x="28.0" y="2.0"/>
+      <transition label-y="1.5" name="R2" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="14.55" y="11.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="3.4375" y="16.0"/>
+      <color-class definition="N*N" name="E" x="14.25" y="16.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="3.5625" y="20.0"/>
+      <color-var domain="N" name="n1" x="3.8125" y="18.0"/>
+    </nodes>
+    <edges>
+      <arc head="R2" kind="INHIBITOR" mult="&lt;n1,All&gt;+&lt;All-n1,n1&gt;" mult-x="-4.5" mult-y="-0.060960868200529816" tail="Edge">
+        <point x="15.0" y="10.0"/>
+      </arc>
+      <arc head="R2" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.49091796874999993" mult-x="0.3728515624999993" mult-y="1.0817382812500007" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="CPN 2" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" name="Edge" x="14.0" y="2.0"/>
+      <place domain="N" label-y="-2.0" name="Node" x="28.0" y="2.0"/>
+      <transition label-y="1.5" name="R3" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="14.55" y="11.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="3.4375" y="16.0"/>
+      <color-class definition="N*N" name="E" x="14.25" y="16.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="3.5625" y="20.0"/>
+      <color-var domain="N" name="n1" x="3.8125" y="18.0"/>
+    </nodes>
+    <edges>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n1&gt;" mult-k="1.01455078125" mult-x="-3.0" mult-y="2.052007558361879E-5" tail="R3">
+        <point x="15.0" y="7.5"/>
+      </arc>
+      <arc head="R3" kind="INHIBITOR" mult="&lt;n1,All&gt;" mult-x="2.1940684999338647" mult-y="-0.06392171436129779" tail="Edge">
+        <point x="18.5" y="7.0"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.37548828125" mult-x="2.0" mult-y="2.0" tail="R3"/>
+      <arc head="R3" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.34248046874999993" mult-x="2.1982421875" mult-y="2.2215820312499996" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="SWN 2" show-fluid-cmd="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" marking="&lt;nd1,nd2&gt;+&lt;nd2,nd3&gt;+&lt;nd2,nd4&gt;+&lt;nd3,nd1&gt;" name="Edge" x="16.0" y="7.0"/>
+      <place domain="N" label-y="-2.0" marking="&lt;nd1+nd2+nd3+nd4&gt;" name="Node" x="30.0" y="7.0"/>
+      <transition label-y="1.5" name="R3" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="16.55" y="16.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="5.4375" y="21.0"/>
+      <color-class definition="N*N" name="E" x="16.25" y="21.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="5.5625" y="25.0"/>
+      <color-var domain="N" name="n1" x="5.8125" y="23.0"/>
+      <color-var domain="N" name="n2" x="10.9375" y="23.0"/>
+      <color-var domain="N" name="n3" x="15.9375" y="23.0"/>
+    </nodes>
+    <edges>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n1&gt;" mult-k="1.01455078125" mult-x="-3.0" mult-y="2.052007558361879E-5" tail="R3">
+        <point x="17.0" y="12.5"/>
+      </arc>
+      <arc head="R3" kind="INHIBITOR" mult="&lt;n1,All&gt;" mult-x="2.1940684999338647" mult-y="-0.06392171436129779" tail="Edge">
+        <point x="20.5" y="12.0"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.37548828125" mult-x="2.0" mult-y="2.0" tail="R3"/>
+      <arc head="R3" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.34248046874999993" mult-x="2.1982421875" mult-y="2.2215820312499996" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="CPN 4" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" name="Edge" x="16.0" y="6.0"/>
+      <place domain="N" label-y="-2.0" name="Node" x="30.0" y="6.0"/>
+      <transition guard-x="-3.0" guard-y="0.0" label-y="1.5" name="R5" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="16.55" y="15.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="5.4375" y="20.0"/>
+      <color-class definition="N*N" name="E" x="16.25" y="20.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="5.5625" y="24.0"/>
+      <color-var domain="N" name="n1" x="5.8125" y="22.0"/>
+      <color-var domain="N" name="n2" x="10.9375" y="22.0"/>
+    </nodes>
+    <edges>
+      <arc head="R5" kind="INPUT" mult="&lt;n1,n2&gt;+&lt;n2,n2&gt;" mult-k="0.27783203125" mult-x="-6.5" mult-y="-4.8828125E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n1&gt;" mult-k="1.0081054687500002" mult-x="1.3825325444743441" mult-y="-0.07163901630727665" tail="R5">
+        <point x="20.0" y="11.5"/>
+      </arc>
+      <arc head="R5" kind="INPUT" mult="&lt;n2&gt;" mult-x="0.5" tail="Node"/>
+      <arc head="R5" kind="INHIBITOR" mult="&lt;All-n1-n2,n2&gt;+&lt;n2,All-n2&gt;+&lt;n1,n1&gt;" mult-k="1.4266601562499996" mult-x="-7.230632020346663" mult-y="0.6540519694800047" tail="Edge">
+        <point x="14.0" y="11.5"/>
+      </arc>
+    </edges>
+  </gspn>
+  <gspn name="CPN 3" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" name="Edge" x="14.0" y="4.0"/>
+      <place domain="N" label-y="-2.0" name="Node" x="28.0" y="4.0"/>
+      <transition guard-x="-3.0" guard-y="0.0" label-y="1.5" name="R4" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="14.55" y="13.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="3.4375" y="18.0"/>
+      <color-class definition="N*N" name="E" x="14.25" y="18.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="3.5625" y="22.0"/>
+      <color-var domain="N" name="n1" x="3.8125" y="20.0"/>
+      <color-var domain="N" name="n2" x="8.9375" y="20.0"/>
+    </nodes>
+    <edges>
+      <arc head="R4" kind="INPUT" mult="&lt;n1,n1&gt;" mult-k="0.50009765625" mult-x="1.5" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2&gt;+&lt;n2,n1&gt;" mult-k="1.0081054687500002" mult-x="-3.7069725633667616" mult-y="3.1238920878529086E-4" tail="R4">
+        <point x="12.0" y="9.5"/>
+      </arc>
+      <arc head="R4" kind="INHIBITOR" mult="&lt;n2&gt;" mult-y="0.5" tail="Node"/>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n2&gt;" tail="R4">
+        <point x="29.0" y="14.0"/>
+      </arc>
+    </edges>
+  </gspn>
+  <gspn name="SWN 3" show-fluid-cmd="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" marking="&lt;nd1,nd2&gt;+&lt;nd1,nd3&gt;+&lt;nd4,nd1&gt;" name="Edge" x="16.0" y="7.0"/>
+      <place domain="N" label-y="-2.0" marking="&lt;nd1+nd2+nd3+nd4&gt;" name="Node" x="30.0" y="7.0"/>
+      <transition delay-x="-11.0" delay-y="10.5" guard-x="-3.0" guard-y="0.0" label-y="1.5" name="R1" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="16.55" y="16.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="5.4375" y="21.0"/>
+      <color-class definition="N*N" name="E" x="16.25" y="21.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="5.5625" y="25.0"/>
+      <color-var domain="N" name="n1" x="5.8125" y="23.0"/>
+      <color-var domain="N" name="n2" x="10.9375" y="23.0"/>
+      <color-var domain="N" name="n3" x="15.9375" y="23.0"/>
+      <transition delay-x="-12.0" delay-y="10.5" label-y="1.5" name="R3" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="30.55" y="16.0"/>
+      <constant consttype="INTEGER" name="copy_MAX" value="10" x="14.5625" y="25.0"/>
+    </nodes>
+    <edges>
+      <arc head="R1" kind="INPUT" mult="&lt;n1,n2&gt;+&lt;n2,n3&gt;" mult-k="0.50009765625" mult-x="-9.0" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2&gt;+&lt;n2,n3&gt;+&lt;n1,n3&gt;" mult-x="-5.975217859126911" mult-y="-0.2128267886903643" tail="R1">
+        <point x="14.0" y="12.5"/>
+      </arc>
+      <arc head="R1" kind="INHIBITOR" mult="&lt;n1,n3&gt;" mult-x="-0.04609983901845638" mult-y="2.1808502414723137" tail="Edge">
+        <point x="20.0" y="12.5"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1+n2+n3&gt;" mult-k="0.20947265625000003" mult-x="1.5673828125" mult-y="1.88525390625" tail="R1"/>
+      <arc head="R1" kind="INPUT" mult="&lt;n1+n2+n3&gt;" mult-k="0.24189453125" mult-x="-1.2052734375000007" mult-y="-1.5823242187499993" tail="Node"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n1&gt;" mult-k="0.8338867187500001" mult-x="1.5773906238309792" mult-y="-0.11507291744601389" tail="R3">
+        <point x="25.0" y="13.0"/>
+      </arc>
+      <arc head="R3" kind="INHIBITOR" mult="&lt;n1,All&gt;" mult-k="1.06884765625" mult-x="0.4997779274690437" tail="Edge">
+        <point x="26.0" y="17.0"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.27783203125" mult-x="2.0" mult-y="4.8828125E-4" tail="R3"/>
+      <arc head="R3" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.38896484374999996" mult-x="2.0" mult-y="-6.835937499989342E-4" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="CPN 5" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" name="Edge" x="14.0" y="4.0"/>
+      <place domain="N" label-y="-2.0" name="Node" x="28.0" y="4.0"/>
+      <transition guard-x="-3.0" guard-y="0.0" label-y="1.5" name="R6" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="14.55" y="13.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="3.4375" y="18.0"/>
+      <color-class definition="N*N" name="E" x="14.25" y="18.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="3.5625" y="22.0"/>
+      <color-var domain="N" name="n1" x="3.8125" y="20.0"/>
+      <color-var domain="N" name="n2" x="8.9375" y="20.0"/>
+      <color-var domain="N" name="n3" x="13.9375" y="20.0"/>
+    </nodes>
+    <edges>
+      <arc head="R6" kind="INPUT" mult="&lt;n1,n2&gt;+&lt;n2,n1&gt;" mult-k="0.27783203125" mult-x="3.0" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2&gt;+&lt;n2,n3&gt;+&lt;n3,n1&gt;" mult-k="0.52958984375" mult-x="-5.206972563366762" mult-y="3.1238920878529086E-4" tail="R6">
+        <point x="12.0" y="9.5"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n3&gt;" mult-k="0.35009765625" mult-x="0.5841796874999972" mult-y="0.8030273437500011" tail="R6"/>
+      <arc head="R6" kind="INHIBITOR" mult="&lt;n3&gt;" mult-k="0.60458984375" tail="Node">
+        <point x="29.0" y="14.0"/>
+      </arc>
+    </edges>
+  </gspn>
+  <measures gspn-name="SWN" name="Measures">
+    <assignments/>
+    <greatspn/>
+    <formulas>
+      <formula language="ALL"/>
+    </formulas>
+  </measures>
+</project>
