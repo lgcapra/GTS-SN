@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This project file has been saved by the New GreatSPN Editor, v.100 --><project name="graphrew" version="121">
+  <gspn name="r1new" show-fluid-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" name="Edge" x="14.0" y="5.0"/>
+      <place domain="N" label-y="-2.0" name="Node" x="24.0" y="5.0"/>
+      <transition delay-x="21.5" delay-y="2.0" guard-x="-3.0" guard-y="0.0" label-y="1.5" name="t_r1" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="14.55" y="14.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="3.4375" y="18.0"/>
+      <color-class definition="N*N*L" name="Ed" x="23.6875" y="20.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="3.5625" y="23.0"/>
+      <color-var domain="N" name="n1" x="3.8125" y="20.0"/>
+      <color-var domain="N" name="n2" x="8.9375" y="20.0"/>
+      <color-var domain="N" name="n3" x="13.9375" y="20.0"/>
+      <color-class definition="{lb1} is L1 + {lb2} is L2  + {lb3} is L3" name="L" x="14.5" y="18.0"/>
+      <color-var domain="L" name="l" x="18.9375" y="20.0"/>
+    </nodes>
+    <edges>
+      <arc head="t_r1" kind="INPUT" mult="&lt;n1,n2,l&gt;+&lt;n2,n3,l&gt;" mult-k="0.50009765625" mult-x="-9.0" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2,l&gt;+&lt;n2,n3,l&gt;+&lt;n1,n3,l&gt;" mult-x="-5.975217859126911" mult-y="-0.2128267886903643" tail="t_r1">
+        <point x="12.0" y="10.5"/>
+      </arc>
+      <arc head="t_r1" kind="INHIBITOR" mult="&lt;n1,n3,l&gt;" mult-x="1.9539001609815436" mult-y="0.18085024147231366" tail="Edge">
+        <point x="18.0" y="10.5"/>
+      </arc>
+    </edges>
+  </gspn>
+  <gspn name="r1bis" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" marking="&lt;v1,v2,L1&gt;+&lt;v2,v2,L1&gt;" name="Edge" x="14.0" y="4.0"/>
+      <place domain="N" label-x="1.0" label-y="2.0" marking="&lt;v1+v2&gt;" name="Node" x="14.0" y="20.0"/>
+      <transition guard-x="-3.5" guard-y="0.0" label-y="1.5" name="R1" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="14.55" y="13.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="28.4375" y="27.0"/>
+      <color-class definition="N*N*L" name="Ed" x="8.6875" y="29.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="2.5625" y="27.0"/>
+      <color-var domain="N" name="n1" x="2.8125" y="25.0"/>
+      <color-var domain="N" name="n2" x="8.8125" y="25.0"/>
+      <color-var domain="N" name="n3" x="14.8125" y="25.0"/>
+      <color-class definition="{l1} is L1 + {l2} is L2  + {l3} is L3" name="L" x="8.5" y="27.0"/>
+    </nodes>
+    <edges>
+      <arc head="R1" kind="INPUT" mult="&lt;n1,n2,L1&gt;" mult-k="0.50009765625" mult-x="2.0" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2,L2&gt;" mult-k="0.9084960937500001" mult-x="-2.2857791052542034" mult-y="0.11745077683839433" tail="R1">
+        <point x="12.0" y="9.5"/>
+      </arc>
+    </edges>
+  </gspn>
+  <gspn name="r2new" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" name="Edge" x="14.0" y="2.0"/>
+      <place domain="N" label-x="0.5" label-y="-2.0" name="Node" x="24.0" y="11.0"/>
+      <transition label-x="-2.5" label-y="0.0" name="t_r2" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="14.55" y="11.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="5.4375" y="16.0"/>
+      <color-class definition="N*N*L" name="Ed" x="15.6875" y="18.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="3.5625" y="21.0"/>
+      <color-var domain="N" name="n" x="6.125" y="18.0"/>
+      <color-class definition="{lb1} is L1 + {lb2} is L2  + {lb3} is L3" name="L" x="15.5" y="16.0"/>
+    </nodes>
+    <edges>
+      <arc head="t_r2" kind="INHIBITOR" mult="&lt;n,All,All&gt;+&lt;All-n,n,All&gt;" mult-x="5.5" mult-y="-0.060960868200529816" tail="Edge">
+        <point x="15.0" y="10.0"/>
+      </arc>
+      <arc head="t_r2" kind="INPUT" mult="&lt;n&gt;" mult-k="0.49091796874999993" mult-x="0.4091796875" mult-y="0.5817382812500007" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="r3new" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" name="Edge" x="14.0" y="2.0"/>
+      <place domain="N" label-y="-2.0" name="Node" x="25.0" y="11.0"/>
+      <transition label-x="-2.5" label-y="0.0" name="t_r3" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="14.55" y="11.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="3.4375" y="16.0"/>
+      <color-class definition="N*N*L" name="Ed" x="13.6875" y="18.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="3.5625" y="20.0"/>
+      <color-var domain="N" name="n" x="3.8125" y="18.0"/>
+      <color-class definition="{lb1} is L1 + {lb2} is L2  + {lb3} is L3" name="L" x="13.5" y="16.0"/>
+    </nodes>
+    <edges>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n,n,L1&gt;" mult-k="1.01455078125" mult-x="-2.0" mult-y="2.0520075585395148E-5" tail="t_r3">
+        <point x="15.0" y="7.5"/>
+      </arc>
+      <arc head="t_r3" kind="INHIBITOR" mult="&lt;n,All,All&gt;" mult-k="0.6442382812500002" mult-x="2.1940684999338647" mult-y="-0.06392171436129779" tail="Edge">
+        <point x="18.0" y="7.5"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n&gt;" mult-k="0.22001953124999998" mult-x="0.494140625" mult-y="0.87939453125" tail="t_r3"/>
+      <arc head="t_r3" kind="INPUT" mult="&lt;n&gt;" mult-k="0.23994140624999996" mult-x="0.1393554687500007" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="r4new" show-fluid-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" name="Edge" x="16.0" y="7.0"/>
+      <place domain="N" label-y="-2.0" name="Node" x="26.0" y="7.0"/>
+      <transition delay-x="21.5" delay-y="2.0" guard-x="-3.0" guard-y="0.0" label-x="-2.5" label-y="0.0" name="t_r4" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="16.55" y="16.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="5.4375" y="20.0"/>
+      <color-class definition="N*N*L" name="Ed" x="25.6875" y="22.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="5.5625" y="24.0"/>
+      <color-var domain="N" name="n1" x="5.8125" y="22.0"/>
+      <color-var domain="N" name="n2" x="10.9375" y="22.0"/>
+      <color-var domain="N" name="n3" x="15.9375" y="22.0"/>
+      <color-class definition="{lb1} is L1 + {lb2} is L2  + {lb3} is L3" name="L" x="16.5" y="20.0"/>
+      <color-var domain="L" name="l" x="20.9375" y="22.0"/>
+    </nodes>
+    <edges>
+      <arc head="t_r4" kind="INPUT" mult="2&lt;n1,n2,l&gt;" mult-k="0.99189453125" mult-x="2.7069725633667616" mult-y="3.1238920878173815E-4" tail="Edge">
+        <point x="20.0" y="12.5"/>
+      </arc>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2,l&gt;" mult-k="1.0081054687500002" mult-x="-2.2069725633667616" mult-y="3.1238920878529086E-4" tail="t_r4">
+        <point x="14.0" y="12.5"/>
+      </arc>
+    </edges>
+  </gspn>
+  <gspn name="r5new" show-fluid-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" name="Edge" x="10.0" y="4.0"/>
+      <place domain="N" label-y="-2.0" name="Node" x="21.0" y="13.0"/>
+      <transition delay-x="19.5" delay-y="0.5" label-x="-2.5" label-y="0.0" name="t_r5" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="10.55" y="13.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="5.4375" y="17.0"/>
+      <color-class definition="N*N*L" name="Ed" x="15.6875" y="19.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="5.5625" y="21.0"/>
+      <color-var domain="N" name="n" x="5.8125" y="19.0"/>
+      <color-class definition="{lb1} is L1 + {lb2} is L2  + {lb3} is L3" name="L" x="15.5" y="17.0"/>
+      <color-var domain="L" name="l" x="10.9375" y="19.0"/>
+    </nodes>
+    <edges>
+      <arc head="t_r5" kind="INHIBITOR" mult="&lt;n,All,All-l&gt;+&lt;n,All-n,l&gt;+&lt;All-n,n,All&gt;+2&lt;n,n,l&gt;" mult-k="0.66865234375" mult-x="10.423270831614982" mult-y="-0.6150937525775273" tail="Edge">
+        <point x="14.0" y="9.5"/>
+      </arc>
+      <arc head="t_r5" kind="INPUT" mult="&lt;n&gt;" mult-k="0.36357421875000007" mult-x="-0.7790039062500007" mult-y="0.5" tail="Node"/>
+      <arc head="t_r5" kind="INPUT" mult="&lt;n,n,l&gt;" mult-x="-1.5" mult-y="0.0" tail="Edge"/>
+    </edges>
+  </gspn>
+  <gspn name="gts1" show-fluid-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" name="Edge" x="16.0" y="7.0"/>
+      <transition delay-x="21.5" delay-y="2.0" guard-x="-3.0" guard-y="0.0" label-y="1.5" name="t_r1" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="16.55" y="16.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="5.4375" y="21.0"/>
+      <color-class definition="N*N*L" name="Ed" x="25.6875" y="23.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="5.5625" y="25.0"/>
+      <color-var domain="N" name="n1" x="5.8125" y="23.0"/>
+      <color-var domain="N" name="n2" x="10.9375" y="23.0"/>
+      <color-var domain="N" name="n3" x="15.9375" y="23.0"/>
+      <color-class definition="{lb1} is L1 + {lb2} is L2  + {lb3} is L3" name="L" x="16.5" y="21.0"/>
+      <color-var domain="L" name="l" x="20.9375" y="23.0"/>
+      <place domain="N" label-x="0.5" label-y="2.0" name="Node" x="28.0" y="16.0"/>
+      <transition label-x="2.0" label-y="-0.5" name="t_r3" nservers-x="0.5" rotation="-0.0" type="EXP" x="28.55" y="7.0"/>
+    </nodes>
+    <edges>
+      <arc head="t_r1" kind="INPUT" mult="&lt;n1,n2,l&gt;+&lt;n2,n3,l&gt;" mult-k="0.50009765625" mult-x="-9.0" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2,l&gt;+&lt;n2,n3,l&gt;+&lt;n1,n3,l&gt;" mult-x="-5.975217859126911" mult-y="-0.2128267886903643" tail="t_r1">
+        <point x="14.0" y="12.5"/>
+      </arc>
+      <arc head="t_r1" kind="INHIBITOR" mult="&lt;n1,n3,l&gt;" mult-k="0.9977539062499999" mult-x="1.9539001609815436" mult-y="0.18085024147231366" tail="Edge">
+        <point x="20.0" y="12.5"/>
+      </arc>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n1,L1&gt;" mult-k="1.1629882812499996" mult-x="0.5224380421325101" mult-y="0.5" tail="t_r3">
+        <point x="24.0" y="8.0"/>
+      </arc>
+      <arc head="t_r3" kind="INHIBITOR" mult="&lt;n1,All,All&gt;" mult-k="1.0124023437499998" mult-x="-0.01625676075685334" mult-y="-0.6684300723141972" tail="Edge">
+        <point x="23.5" y="5.0"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.33330078125000007" mult-x="-1.0" mult-y="0.01982421874999929" tail="t_r3"/>
+      <arc head="t_r3" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.27783203125" mult-x="-1.0" mult-y="-2.9296874999928946E-4" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="r6new" show-fluid-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" name="Edge" x="16.0" y="4.0"/>
+      <place domain="N" label-y="-2.0" name="Node" x="27.0" y="13.0"/>
+      <transition guard="n1!=n2 &amp;&amp;n1!=n3&amp;&amp;l!in L1 " guard-x="-6.0" guard-y="0.0" label-y="1.5" name="t_r6" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="16.55" y="13.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="5.4375" y="18.0"/>
+      <color-class definition="N*N*L" name="Ed" x="5.6875" y="22.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="5.5625" y="25.0"/>
+      <color-var domain="N" name="n1" x="5.8125" y="20.0"/>
+      <color-class definition="{lb1} is L1 + {lb2} is L2  + {lb3} is L3" name="L" x="15.5" y="18.0"/>
+      <color-var domain="N" name="n2" x="10.9375" y="20.0"/>
+      <color-var domain="N" name="n3" x="15.8125" y="20.0"/>
+      <color-var domain="L" name="l" x="26.4375" y="20.0"/>
+      <color-var domain="N" name="n4" x="20.8125" y="20.0"/>
+    </nodes>
+    <edges>
+      <arc head="Edge" kind="OUTPUT" mult="2&lt;n1,n4,L1&gt;" mult-k="1.00673828125" mult-x="-2.7290766243794433" mult-y="0.500222888609601" tail="t_r6">
+        <point x="13.5" y="9.5"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n4&gt;" mult-k="0.50009765625" mult-x="-0.001074218749998579" mult-y="-0.5" tail="t_r6"/>
+      <arc head="t_r6" kind="INHIBITOR" mult="&lt;n4&gt;" mult-k="1.11572265625" mult-x="0.4845435332538628" mult-y="-0.7233681472353481" tail="Node">
+        <point x="22.5" y="17.0"/>
+      </arc>
+      <arc head="t_r6" kind="INPUT" mult="&lt;n1,n2,l&gt;+&lt;n1,n3,l&gt;" mult-k="0.55556640625" mult-x="4.0" mult-y="0.1618164062500007" tail="Edge"/>
+    </edges>
+  </gspn>
+  <gspn name="gts2pinv" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" name="Edge" x="12.0" y="2.0"/>
+      <place domain="N" label-y="-2.0" name="Node" x="25.0" y="2.0"/>
+      <transition guard-x="-3.0" guard-y="0.0" label-y="1.5" name="t_r1" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="12.55" y="11.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="1.4375" y="16.0"/>
+      <color-class definition="N*N*L" name="Ed" x="21.6875" y="18.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="1.5625" y="20.0"/>
+      <color-var domain="N" name="n1" x="1.8125" y="18.0"/>
+      <color-var domain="N" name="n2" x="6.9375" y="18.0"/>
+      <color-var domain="N" name="n3" x="11.9375" y="18.0"/>
+      <color-class definition="{lb1} is L1 + {lb2} is L2  + {lb3} is L3" name="L" x="13.5" y="16.0"/>
+      <transition guard="l !in L1 &amp;&amp; l !in L2" guard-x="-4.0" guard-y="0.0" label-y="1.5" name="t_r2" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="25.55" y="11.0"/>
+      <color-var domain="L" name="l" x="17.4375" y="18.0"/>
+    </nodes>
+    <edges>
+      <arc head="t_r1" kind="INPUT" mult="&lt;n1,n2,L1&gt;" mult-k="0.50009765625" mult-x="2.0" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2,L2&gt;" mult-k="1.0110351562499997" mult-x="-2.1515404536554392" mult-y="3.429079837937721E-4" tail="t_r1">
+        <point x="11.0" y="7.5"/>
+      </arc>
+      <arc head="t_r2" kind="INPUT" mult="&lt;n1,n1,l&gt;" mult-x="2.0" mult-y="0.0" tail="Edge"/>
+    </edges>
+  </gspn>
+  <gspn name="noninjR" show-fluid-cmd="false">
+    <nodes>
+      <place domain="Ed" label-x="-2.0" label-y="-2.0" name="Edge" x="18.0" y="10.0"/>
+      <place domain="N" label-x="1.0" label-y="-1.5" name="Node" x="38.0" y="10.0"/>
+      <transition delay="1" delay-x="-17.0" delay-y="4.0" guard="n4!=n5" guard-x="-2.0" guard-y="1.0" label-x="-2.5" label-y="-1.0" name="t_r" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="18.55" y="19.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="8.4375" y="40.0"/>
+      <color-class definition="N*N*L" name="Ed" x="32.6875" y="44.0"/>
+      <constant consttype="INTEGER" name="MAX" value="5" x="9.5625" y="47.0"/>
+      <color-var domain="N" name="n1" x="8.8125" y="42.0"/>
+      <color-var domain="N" name="n2" x="14.8125" y="42.0"/>
+      <color-var domain="N" name="n3" x="20.8125" y="42.0"/>
+      <color-class definition="{l1} is L1 + {l2} is L2  + {l3} is L3" name="L" x="22.5" y="40.0"/>
+      <color-var domain="N" name="n4" x="26.8125" y="42.0"/>
+      <color-var domain="N" name="n5" x="31.8125" y="42.0"/>
+      <place label-x="2.5" label-y="-0.5" name="Trigger" x="18.0" y="25.0"/>
+      <place domain="N" label-x="5.0" label-y="0.0" name="ToMerge" x="27.0" y="25.0"/>
+      <place domain="N" label-x="4.0" label-y="0.0" name="Merge" x="38.0" y="25.0"/>
+      <transition guard="x == n3 || x ==n2" guard-x="-3.5" guard-y="1.0" label-x="2.5" label-y="1.0" name="reconnectS" rotation="4.71238898038469" type="IMM" x="18.85" y="36.0"/>
+      <color-var domain="N" name="y" x="37.25" y="42.0"/>
+      <color-var domain="N" name="x" x="21.25" y="44.0"/>
+      <color-var domain="L" name="l" x="26.4375" y="44.0"/>
+      <transition guard="y == n3 || y ==n2" guard-x="3.0" guard-y="1.0" label-x="-3.0" label-y="1.0" name="reconnectT" rotation="4.71238898038469" type="IMM" x="38.85" y="36.0"/>
+      <transition label-x="2.0" label-y="1.0" name="end" rotation="4.71238898038469" type="IMM" x="38.85" y="19.0"/>
+      <place marking="1" name="Start" x="7.0" y="19.0"/>
+    </nodes>
+    <edges>
+      <arc head="t_r" kind="INPUT" mult="&lt;n1,n1,L2&gt;+&lt;n1,n2,L1&gt;+&lt;n1,n3,L1&gt;" mult-k="1.0715820312500002" mult-x="-8.222156857520947" mult-y="0.1904833151168681" tail="Edge">
+        <point x="16.5" y="15.5"/>
+      </arc>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n4,L1&gt;+&lt;n5,n1,L2&gt;" mult-k="1.3483398437499998" mult-x="-13.193406485427357" mult-y="-0.048131673769242767" tail="t_r">
+        <point x="21.5" y="15.5"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1+n2+n3+n4+n5&gt;" mult-k="1.43837890625" mult-x="-0.07754485630952601" mult-y="-0.651133490904793" tail="t_r">
+        <point x="27.5" y="11.0"/>
+      </arc>
+      <arc head="t_r" kind="INPUT" mult="&lt;n1&gt;+&lt;n2&gt;+&lt;n3&gt;" mult-k="0.8036132812500001" mult-x="2.482957122442812" mult-y="0.7627821581678909" tail="Node">
+        <point x="27.0" y="20.0"/>
+      </arc>
+      <arc head="t_r" kind="INHIBITOR" mult="&lt;n4&gt;+&lt;n5&gt;" mult-k="0.39169921875" mult-x="-0.5888671875" mult-y="-0.94287109375" tail="Node"/>
+      <arc head="ToMerge" kind="OUTPUT" mult="&lt;n2+n3&gt;" mult-k="0.43583984374999996" mult-x="-1.5" mult-y="0.5" tail="t_r"/>
+      <arc head="reconnectS" kind="INPUT" tail="Trigger"/>
+      <arc head="Trigger" kind="OUTPUT" tail="reconnectS"/>
+      <arc head="Merge" kind="OUTPUT" mult="&lt;n4&gt;" mult-k="0.35341796875" mult-x="0.4478515624999986" mult-y="-0.3794921874999986" tail="t_r"/>
+      <arc head="reconnectS" kind="INPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.14853515625000002" mult-x="-1.99951171875" mult-y="-4.8828125E-4" tail="ToMerge"/>
+      <arc head="ToMerge" kind="OUTPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.42333984375" mult-x="-1.4852539062500014" mult-y="-0.8088867187499993" tail="reconnectS"/>
+      <arc head="reconnectS" kind="INPUT" mult="&lt;n4&gt;" mult-k="0.6958007812500001" mult-x="0.5998046875000007" mult-y="0.7000976562500014" tail="Merge"/>
+      <arc head="reconnectS" kind="INPUT" mult="&lt;x,y,l&gt;" mult-k="1.8288085937499998" mult-x="1.5" mult-y="0.28672690531629286" tail="Edge">
+        <point x="15.0" y="11.0"/>
+        <point x="15.0" y="34.5"/>
+      </arc>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n4,y,l&gt;" mult-k="2.15986328125" mult-x="-1.5" mult-y="2.9428741489923027E-4" tail="reconnectS">
+        <point x="20.0" y="37.0"/>
+        <point x="11.5" y="37.0"/>
+        <point x="11.5" y="35.0"/>
+        <point x="11.5" y="10.0"/>
+        <point x="19.0" y="10.0"/>
+      </arc>
+      <arc head="reconnectT" kind="INPUT" tail="Trigger"/>
+      <arc head="reconnectT" kind="INPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.68173828125" mult-x="1.1288085937500014" mult-y="-1.0833007812499993" tail="ToMerge"/>
+      <arc head="ToMerge" kind="OUTPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.7727539062500001" mult-x="1.2506835937500007" mult-y="-0.7489257812500014" tail="reconnectT"/>
+      <arc head="reconnectT" kind="INPUT" mult="&lt;n4&gt;" mult-k="0.7272460937500002" mult-y="0.25048828125" tail="Merge"/>
+      <arc head="Merge" kind="OUTPUT" mult="&lt;n4&gt;" mult-k="0.7727539062500001" mult-y="0.4002929687500014" tail="reconnectT"/>
+      <arc head="reconnectT" kind="INPUT" mult="&lt;x,y,l&gt;" mult-k="3.845410156250001" mult-x="-1.5" mult-y="1.3864837157484544E-5" tail="Edge">
+        <point x="22.5" y="11.0"/>
+        <point x="23.5" y="8.5"/>
+        <point x="44.0" y="8.5"/>
+        <point x="44.0" y="34.5"/>
+      </arc>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;x,n4,l&gt;" mult-k="2.1481445312499994" mult-x="-1.5" mult-y="1.5358888773420176E-4" tail="reconnectT">
+        <point x="38.0" y="37.0"/>
+        <point x="48.0" y="37.0"/>
+        <point x="48.0" y="34.5"/>
+        <point x="48.0" y="7.5"/>
+        <point x="21.0" y="7.5"/>
+        <point x="19.0" y="7.5"/>
+      </arc>
+      <arc head="Trigger" kind="OUTPUT" mult-k="0.5344726562500001" tail="reconnectT"/>
+      <arc head="Merge" kind="OUTPUT" mult="&lt;n4&gt;" mult-k="0.8637695312500001" mult-x="-0.6033203124999993" mult-y="-0.6331054687500028" tail="reconnectS"/>
+      <arc head="end" kind="INPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.6432617187500002" mult-x="1.6588867187499972" mult-y="0.4587890624999993" tail="ToMerge"/>
+      <arc head="end" kind="INPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.44443359375" mult-x="2.0" mult-y="0.49931640625000107" tail="Node"/>
+      <arc head="end" kind="INHIBITOR" mult="&lt;All-n2-n3,n2+n3,All&gt;+&lt;n2+n3,All,All&gt;" mult-k="0.22919921875000002" mult-x="-0.083984375" mult-y="-7.062792968749999" tail="Edge"/>
+      <arc head="end" kind="INPUT" mult-k="1.40029296875" tail="Trigger">
+        <point x="23.5" y="26.0"/>
+        <point x="33.5" y="20.0"/>
+      </arc>
+      <arc head="end" kind="INPUT" mult="&lt;n4&gt;" mult-k="0.33330078125000007" mult-y="-0.5001953125000007" tail="Merge"/>
+      <arc head="t_r" kind="INPUT" tail="Start"/>
+      <arc head="Start" kind="OUTPUT" tail="end">
+        <point x="45.5" y="20.0"/>
+        <point x="45.5" y="4.5"/>
+        <point x="8.0" y="4.5"/>
+      </arc>
+      <arc head="Trigger" kind="OUTPUT" tail="t_r"/>
+    </edges>
+  </gspn>
+  <gspn name="compositeR" show-fluid-cmd="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" name="Edge" x="18.0" y="8.0"/>
+      <place domain="N" label-x="1.0" label-y="-2.0" name="Node" x="32.0" y="8.0"/>
+      <transition delay="1" delay-x="-17.0" delay-y="4.0" guard-x="-2.5" guard-y="1.0" label-x="-2.5" name="t_r" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="18.55" y="17.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="6.4375" y="38.0"/>
+      <color-class definition="N*N*L" name="Ed" x="24.6875" y="40.0"/>
+      <constant consttype="INTEGER" name="MAX" value="100" x="6.5625" y="42.0"/>
+      <color-var domain="N" name="n1" x="6.8125" y="40.0"/>
+      <color-var domain="N" name="n2" x="12.8125" y="40.0"/>
+      <color-class definition="{l1} is L1 + {l2} is L2  + {l3} is L3" name="L" x="20.5" y="38.0"/>
+      <place label-x="-3.0" label-y="0.0" name="Trigger" x="18.0" y="23.0"/>
+      <place domain="N" label-x="4.5" label-y="0.0" marking="&lt;v1&gt;" name="NoSucc" x="32.0" y="23.0"/>
+      <transition guard-x="-3.5" guard-y="1.0" label-y="1.0" name="delInEdge" rotation="4.71238898038469" type="IMM" x="18.85" y="31.0"/>
+      <color-var domain="L" name="l" x="18.4375" y="40.0"/>
+      <transition label-x="1.5" name="end" rotation="1.5707963267948966" type="IMM" x="32.85" y="17.0"/>
+      <place label-y="-2.0" marking="1" name="Start" x="7.0" y="17.0"/>
+    </nodes>
+    <edges>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.75810546875" mult-x="0.5007325714060649" tail="t_r"/>
+      <arc head="t_r" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.75810546875" mult-x="0.6134765624999972" mult-y="0.6770507812499993" tail="Node"/>
+      <arc head="Trigger" kind="OUTPUT" tail="t_r"/>
+      <arc head="delInEdge" kind="INPUT" tail="Trigger"/>
+      <arc head="Trigger" kind="OUTPUT" tail="delInEdge"/>
+      <arc head="NoSucc" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.24990234375" mult-x="0.4478515624999986" mult-y="-0.3794921874999986" tail="t_r"/>
+      <arc head="delInEdge" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.7571289062500001" mult-x="0.5998046875000007" mult-y="0.7000976562500014" tail="NoSucc"/>
+      <arc head="delInEdge" kind="INPUT" mult="&lt;n2,n1,l&gt;" mult-k="1.5211914062499998" mult-x="1.5" mult-y="-6.31463579132685E-4" tail="Edge">
+        <point x="12.0" y="9.0"/>
+        <point x="12.0" y="32.0"/>
+      </arc>
+      <arc head="NoSucc" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.70771484375" mult-x="0.5919921875000007" mult-y="0.6617187499999986" tail="delInEdge"/>
+      <arc head="end" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.50009765625" mult-y="4.8828125E-4" tail="Node"/>
+      <arc head="end" kind="INHIBITOR" mult="&lt;n1,All,All&gt;+&lt;All-n1,n1,All&gt;" mult-k="0.37548828125" mult-x="1.2431640625" mult-y="-6.87939453125" tail="Edge"/>
+      <arc head="end" kind="INPUT" tail="Trigger"/>
+      <arc head="end" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.50009765625" mult-y="2.57240853660079E-4" tail="NoSucc"/>
+      <arc head="t_r" kind="INPUT" tail="Start"/>
+      <arc head="t_r" kind="INHIBITOR" mult="&lt;n1,All-n1,All&gt;" mult-x="-3.0" mult-y="0.0" tail="Edge"/>
+      <arc head="t_r" kind="INPUT" mult="&lt;n2&gt;" mult-k="0.68544921875" mult-x="0.05752203378805021" mult-y="0.5" tail="NoSucc">
+        <point x="26.5" y="24.0"/>
+      </arc>
+      <arc head="NoSucc" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.33330078125000007" tail="end"/>
+      <arc head="Start" kind="OUTPUT" tail="end">
+        <point x="34.5" y="18.0"/>
+        <point x="39.0" y="18.0"/>
+        <point x="39.0" y="34.5"/>
+        <point x="8.0" y="34.5"/>
+      </arc>
+    </edges>
+  </gspn>
+  <gspn name="noninjR_m0" show-fluid-cmd="false">
+    <nodes>
+      <place domain="Ed" label-x="-2.0" label-y="-2.0" marking="2&lt;v1,v2,L1&gt;+&lt;v1,v3,L1&gt;+&lt;v3,v1,L2&gt;+&lt;v1,v1,L2&gt;+&lt;v2,v3,L1&gt;" name="Edge" x="16.0" y="8.0"/>
+      <place domain="N" label-x="1.0" label-y="-1.5" marking="&lt;v1+v2+v3&gt;" name="Node" x="36.0" y="8.0"/>
+      <transition delay="1" delay-x="-17.0" delay-y="4.0" guard="n4!=n5" guard-x="-2.0" guard-y="1.0" label-x="-2.5" label-y="-1.0" name="t_r" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="16.55" y="17.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="6.4375" y="38.0"/>
+      <color-class definition="N*N*L" name="Ed" x="30.6875" y="42.0"/>
+      <constant consttype="INTEGER" name="MAX" value="5" x="7.5625" y="42.0"/>
+      <color-var domain="N" name="n1" x="6.8125" y="40.0"/>
+      <color-var domain="N" name="n2" x="12.8125" y="40.0"/>
+      <color-var domain="N" name="n3" x="18.8125" y="40.0"/>
+      <color-class definition="{l1} is L1 + {l2} is L2  + {l3} is L3" name="L" x="20.5" y="38.0"/>
+      <color-var domain="N" name="n4" x="24.8125" y="40.0"/>
+      <color-var domain="N" name="n5" x="29.8125" y="40.0"/>
+      <place label-x="2.5" label-y="-0.5" name="Trigger" x="16.0" y="23.0"/>
+      <place domain="N" label-x="5.0" label-y="0.0" name="ToMerge" x="25.0" y="23.0"/>
+      <place domain="N" label-x="4.0" label-y="0.0" name="Merge" x="36.0" y="23.0"/>
+      <transition guard="x == n3 || x ==n2" guard-x="-3.5" guard-y="1.0" label-x="2.5" label-y="1.0" name="reconnectS" rotation="4.71238898038469" type="IMM" x="16.85" y="34.0"/>
+      <color-var domain="N" name="y" x="35.25" y="40.0"/>
+      <color-var domain="N" name="x" x="19.25" y="42.0"/>
+      <color-var domain="L" name="l" x="24.4375" y="42.0"/>
+      <transition guard="y == n3 || y ==n2" guard-x="3.0" guard-y="1.0" label-x="-3.0" label-y="1.0" name="reconnectT" rotation="4.71238898038469" type="IMM" x="36.85" y="34.0"/>
+      <transition label-x="2.0" label-y="1.0" name="end" rotation="4.71238898038469" type="IMM" x="36.85" y="17.0"/>
+      <place marking="1" name="Start" x="5.0" y="17.0"/>
+    </nodes>
+    <edges>
+      <arc head="t_r" kind="INPUT" mult="&lt;n1,n1,L2&gt;+&lt;n1,n2,L1&gt;+&lt;n1,n3,L1&gt;" mult-k="1.0715820312500002" mult-x="-8.222156857520947" mult-y="0.1904833151168681" tail="Edge">
+        <point x="14.5" y="13.5"/>
+      </arc>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n4,L1&gt;+&lt;n5,n1,L2&gt;" mult-k="1.3483398437499998" mult-x="-13.193406485427357" mult-y="-0.048131673769242767" tail="t_r">
+        <point x="19.5" y="13.5"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1+n2+n3+n4+n5&gt;" mult-k="1.43837890625" mult-x="-0.07754485630952601" mult-y="-0.651133490904793" tail="t_r">
+        <point x="25.5" y="9.0"/>
+      </arc>
+      <arc head="t_r" kind="INPUT" mult="&lt;n1&gt;+&lt;n2&gt;+&lt;n3&gt;" mult-k="0.8036132812500001" mult-x="2.482957122442812" mult-y="0.7627821581678909" tail="Node">
+        <point x="25.0" y="18.0"/>
+      </arc>
+      <arc head="t_r" kind="INHIBITOR" mult="&lt;n4&gt;+&lt;n5&gt;" mult-k="0.39169921875" mult-x="-0.5888671875" mult-y="-0.94287109375" tail="Node"/>
+      <arc head="ToMerge" kind="OUTPUT" mult="&lt;n2+n3&gt;" mult-k="0.43583984374999996" mult-x="-1.5" mult-y="0.5" tail="t_r"/>
+      <arc head="reconnectS" kind="INPUT" tail="Trigger"/>
+      <arc head="Trigger" kind="OUTPUT" tail="reconnectS"/>
+      <arc head="Merge" kind="OUTPUT" mult="&lt;n4&gt;" mult-k="0.35341796875" mult-x="0.4478515624999986" mult-y="-0.3794921874999986" tail="t_r"/>
+      <arc head="reconnectS" kind="INPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.14853515625000002" mult-x="-1.99951171875" mult-y="-4.8828125E-4" tail="ToMerge"/>
+      <arc head="ToMerge" kind="OUTPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.42333984375" mult-x="-1.4852539062500014" mult-y="-0.8088867187499993" tail="reconnectS"/>
+      <arc head="reconnectS" kind="INPUT" mult="&lt;n4&gt;" mult-k="0.6958007812500001" mult-x="0.5998046875000007" mult-y="0.7000976562500014" tail="Merge"/>
+      <arc head="reconnectS" kind="INPUT" mult="&lt;x,y,l&gt;" mult-k="1.8288085937499998" mult-x="1.5" mult-y="0.28672690531629286" tail="Edge">
+        <point x="13.0" y="9.0"/>
+        <point x="13.0" y="32.5"/>
+      </arc>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n4,y,l&gt;" mult-k="2.15986328125" mult-x="-1.5" mult-y="2.9428741489923027E-4" tail="reconnectS">
+        <point x="18.0" y="35.0"/>
+        <point x="9.5" y="35.0"/>
+        <point x="9.5" y="33.0"/>
+        <point x="9.5" y="8.0"/>
+        <point x="17.0" y="8.0"/>
+      </arc>
+      <arc head="reconnectT" kind="INPUT" tail="Trigger"/>
+      <arc head="reconnectT" kind="INPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.68173828125" mult-x="1.1288085937500014" mult-y="-1.0833007812499993" tail="ToMerge"/>
+      <arc head="ToMerge" kind="OUTPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.7727539062500001" mult-x="1.2506835937500007" mult-y="-0.7489257812500014" tail="reconnectT"/>
+      <arc head="reconnectT" kind="INPUT" mult="&lt;n4&gt;" mult-k="0.7272460937500002" mult-y="0.25048828125" tail="Merge"/>
+      <arc head="Merge" kind="OUTPUT" mult="&lt;n4&gt;" mult-k="0.7727539062500001" mult-y="0.4002929687500014" tail="reconnectT"/>
+      <arc head="reconnectT" kind="INPUT" mult="&lt;x,y,l&gt;" mult-k="3.845410156250001" mult-x="-1.5" mult-y="1.3864837157484544E-5" tail="Edge">
+        <point x="20.5" y="9.0"/>
+        <point x="21.5" y="6.5"/>
+        <point x="42.0" y="6.5"/>
+        <point x="42.0" y="32.5"/>
+      </arc>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;x,n4,l&gt;" mult-k="2.1481445312499994" mult-x="-1.5" mult-y="1.5358888773420176E-4" tail="reconnectT">
+        <point x="36.0" y="35.0"/>
+        <point x="46.0" y="35.0"/>
+        <point x="46.0" y="32.5"/>
+        <point x="46.0" y="5.5"/>
+        <point x="19.0" y="5.5"/>
+        <point x="17.0" y="5.5"/>
+      </arc>
+      <arc head="Trigger" kind="OUTPUT" mult-k="0.5344726562500001" tail="reconnectT"/>
+      <arc head="Merge" kind="OUTPUT" mult="&lt;n4&gt;" mult-k="0.8637695312500001" mult-x="-0.6033203124999993" mult-y="-0.6331054687500028" tail="reconnectS"/>
+      <arc head="end" kind="INPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.6432617187500002" mult-x="1.6588867187499972" mult-y="0.4587890624999993" tail="ToMerge"/>
+      <arc head="end" kind="INPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.44443359375" mult-x="2.0" mult-y="0.49931640625000107" tail="Node"/>
+      <arc head="end" kind="INHIBITOR" mult="&lt;All-n2-n3,n2+n3,All&gt;+&lt;n2+n3,All,All&gt;" mult-k="0.22919921875000002" mult-x="-0.083984375" mult-y="-7.062792968749999" tail="Edge"/>
+      <arc head="end" kind="INPUT" mult-k="1.40029296875" tail="Trigger">
+        <point x="21.5" y="24.0"/>
+        <point x="31.5" y="18.0"/>
+      </arc>
+      <arc head="end" kind="INPUT" mult="&lt;n4&gt;" mult-k="0.33330078125000007" mult-y="-0.5001953125000007" tail="Merge"/>
+      <arc head="t_r" kind="INPUT" tail="Start"/>
+      <arc head="Start" kind="OUTPUT" tail="end">
+        <point x="43.5" y="18.0"/>
+        <point x="43.5" y="2.5"/>
+        <point x="6.0" y="2.5"/>
+      </arc>
+      <arc head="Trigger" kind="OUTPUT" tail="t_r"/>
+    </edges>
+  </gspn>
+  <gspn name="compositeR_m0" show-fluid-cmd="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" marking="2&lt;v1,v2,L1&gt;+&lt;v1,v3,L1&gt;+&lt;v3,v1,L2&gt;+&lt;v1,v1,L2&gt;+&lt;v3,v2,L1&gt;" name="Edge" x="20.0" y="10.0"/>
+      <place domain="N" label-x="1.0" label-y="-2.0" marking="&lt;v1+v2+v3&gt;" name="Node" x="34.0" y="10.0"/>
+      <transition delay="1" delay-x="-17.0" delay-y="4.0" guard-x="-2.5" guard-y="1.0" label-x="-2.5" label-y="-1.0" name="t_r" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="20.55" y="19.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="8.4375" y="40.0"/>
+      <color-class definition="N*N*L" name="Ed" x="32.6875" y="44.0"/>
+      <constant consttype="INTEGER" name="MAX" value="5" x="9.5625" y="44.0"/>
+      <color-var domain="N" name="n1" x="8.8125" y="42.0"/>
+      <color-var domain="N" name="n2" x="14.8125" y="42.0"/>
+      <color-var domain="N" name="n3" x="20.8125" y="42.0"/>
+      <color-class definition="{l1} is L1 + {l2} is L2  + {l3} is L3" name="L" x="22.5" y="40.0"/>
+      <color-var domain="N" name="n4" x="26.8125" y="42.0"/>
+      <color-var domain="N" name="n5" x="31.8125" y="42.0"/>
+      <place label-x="-3.0" label-y="0.0" name="Trigger" x="20.0" y="25.0"/>
+      <place domain="N" label-x="4.5" label-y="0.5" marking="&lt;v1&gt;" name="NoSucc" x="34.0" y="25.0"/>
+      <transition guard-x="-3.5" guard-y="1.0" label-x="1.5" label-y="1.5" name="delInEdge" rotation="4.71238898038469" type="IMM" x="20.85" y="33.0"/>
+      <color-var domain="N" name="y" x="37.25" y="42.0"/>
+      <color-var domain="N" name="x" x="21.25" y="44.0"/>
+      <color-var domain="L" name="l" x="26.4375" y="44.0"/>
+      <transition label-x="1.5" name="end" rotation="1.5707963267948966" type="IMM" x="34.85" y="19.0"/>
+      <place label-y="-2.0" marking="1" name="Start" x="9.0" y="19.0"/>
+    </nodes>
+    <edges>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.75810546875" mult-x="0.5007325714060649" tail="t_r"/>
+      <arc head="t_r" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.75810546875" mult-x="0.6134765624999972" mult-y="0.6770507812499993" tail="Node"/>
+      <arc head="Trigger" kind="OUTPUT" tail="t_r"/>
+      <arc head="delInEdge" kind="INPUT" tail="Trigger"/>
+      <arc head="Trigger" kind="OUTPUT" tail="delInEdge"/>
+      <arc head="NoSucc" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.24990234375" mult-x="0.4478515624999986" mult-y="-0.3794921874999986" tail="t_r"/>
+      <arc head="delInEdge" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.7571289062500001" mult-x="0.5998046875000007" mult-y="0.7000976562500014" tail="NoSucc"/>
+      <arc head="delInEdge" kind="INPUT" mult="&lt;n2,n1,l&gt;" mult-k="1.5862304687500002" mult-x="-2.0" mult-y="0.2557246617478768" tail="Edge">
+        <point x="14.0" y="11.0"/>
+        <point x="14.0" y="34.0"/>
+      </arc>
+      <arc head="NoSucc" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.70771484375" mult-x="0.5919921875000007" mult-y="0.6617187499999986" tail="delInEdge"/>
+      <arc head="end" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.38896484374999996" mult-y="4.8828125E-4" tail="Node"/>
+      <arc head="end" kind="INHIBITOR" mult="&lt;n1,All,All&gt;+&lt;All-n1,n1,All&gt;" mult-k="0.37548828125" mult-x="0.7431640625" mult-y="-6.87939453125" tail="Edge"/>
+      <arc head="end" kind="INPUT" tail="Trigger"/>
+      <arc head="end" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.50009765625" mult-y="2.57240853660079E-4" tail="NoSucc"/>
+      <arc head="t_r" kind="INPUT" tail="Start"/>
+      <arc head="t_r" kind="INHIBITOR" mult="&lt;n1,All-n1,All&gt;" mult-x="-3.0" mult-y="0.0" tail="Edge"/>
+      <arc head="t_r" kind="INPUT" mult="&lt;n2&gt;" mult-k="0.68544921875" mult-x="0.05752203378805021" mult-y="0.5" tail="NoSucc">
+        <point x="28.5" y="26.0"/>
+      </arc>
+      <arc head="NoSucc" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.33330078125000007" tail="end"/>
+      <arc head="Start" kind="OUTPUT" tail="end">
+        <point x="36.5" y="20.0"/>
+        <point x="41.0" y="20.0"/>
+        <point x="41.0" y="36.5"/>
+        <point x="10.0" y="36.5"/>
+      </arc>
+    </edges>
+  </gspn>
+  <gspn name="dpo1" show-fluid-cmd="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" name="Edge" x="16.0" y="6.0"/>
+      <place domain="N" label-x="1.0" label-y="2.0" name="Node" x="16.0" y="22.0"/>
+      <transition delay-x="23.0" guard-x="-3.5" guard-y="0.0" label-x="-2.0" label-y="0.0" name="t_r" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="16.55" y="15.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="1.4375" y="27.0"/>
+      <color-class definition="N*N*L" name="Ed" x="19.6875" y="29.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="1.5625" y="31.0"/>
+      <color-var domain="N" name="n1" x="10.8125" y="27.0"/>
+      <color-var domain="N" name="n2" x="15.8125" y="27.0"/>
+      <color-var domain="N" name="n3" x="20.8125" y="27.0"/>
+      <color-class definition="{l1} is L1 + {l2} is L2  + {l3} is L3" name="L" x="1.5" y="29.0"/>
+    </nodes>
+    <edges>
+      <arc head="t_r" kind="INPUT" mult="&lt;n1,n1+n2,L1&gt;" mult-k="0.50009765625" mult-x="3.0" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n3,L1&gt;+&lt;n2,n1,L1&gt;" mult-k="0.9084960937500001" mult-x="-4.785779105254203" mult-y="0.11745077683839256" tail="t_r">
+        <point x="14.0" y="11.5"/>
+      </arc>
+      <arc head="t_r" kind="INPUT" mult="&lt;n1&gt;+&lt;n2&gt;" mult-k="1.0120117187500002" mult-x="2.218298439880215" mult-y="-0.015087504003133745" tail="Node">
+        <point x="19.5" y="19.0"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1&gt;+&lt;n2&gt;+&lt;n3&gt;" mult-k="1.12587890625" mult-x="-3.28346715990814" mult-y="-0.4115692841533374" tail="t_r">
+        <point x="14.5" y="19.0"/>
+      </arc>
+      <arc head="t_r" kind="INHIBITOR" mult="&lt;n3&gt;" mult-k="0.50009765625" mult-y="6.835937500007105E-4" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="dpo1_m0" show-fluid-cmd="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" marking="2&lt;v1,v2,L1&gt;+&lt;v1,v1,L1&gt;" name="Edge" x="18.0" y="8.0"/>
+      <place domain="N" label-x="1.0" label-y="2.0" marking="&lt;v1+v2&gt;" name="Node" x="18.0" y="24.0"/>
+      <transition delay-x="23.0" guard-x="-3.5" guard-y="0.0" label-x="-2.0" label-y="0.0" name="t_r" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="18.55" y="17.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="3.4375" y="29.0"/>
+      <color-class definition="N*N*L" name="Ed" x="21.6875" y="31.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="3.5625" y="33.0"/>
+      <color-var domain="N" name="n1" x="12.8125" y="29.0"/>
+      <color-var domain="N" name="n2" x="17.8125" y="29.0"/>
+      <color-var domain="N" name="n3" x="22.8125" y="29.0"/>
+      <color-class definition="{l1} is L1 + {l2} is L2  + {l3} is L3" name="L" x="3.5" y="31.0"/>
+    </nodes>
+    <edges>
+      <arc head="t_r" kind="INPUT" mult="&lt;n1,n1+n2,L1&gt;" mult-k="0.50009765625" mult-x="3.0" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n3,L1&gt;+&lt;n2,n1,L1&gt;" mult-k="0.9084960937500001" mult-x="-4.785779105254203" mult-y="0.11745077683839256" tail="t_r">
+        <point x="16.0" y="13.5"/>
+      </arc>
+      <arc head="t_r" kind="INPUT" mult="&lt;n1&gt;+&lt;n2&gt;" mult-k="1.0120117187500002" mult-x="2.218298439880215" mult-y="-0.015087504003133745" tail="Node">
+        <point x="21.5" y="21.0"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1&gt;+&lt;n2&gt;+&lt;n3&gt;" mult-k="1.12587890625" mult-x="-3.28346715990814" mult-y="-0.4115692841533374" tail="t_r">
+        <point x="16.5" y="21.0"/>
+      </arc>
+      <arc head="t_r" kind="INHIBITOR" mult="&lt;n3&gt;" mult-k="0.50009765625" mult-y="6.835937500007105E-4" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="dpoi1equiv" show-fluid-cmd="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" name="Edge" x="18.0" y="8.0"/>
+      <place domain="N" label-x="1.0" label-y="2.0" name="Node" x="18.0" y="24.0"/>
+      <transition delay-x="23.0" guard="n1!=n2" guard-x="3.5" guard-y="0.0" label-x="-2.0" label-y="0.0" name="t_r" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="18.55" y="17.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="3.4375" y="29.0"/>
+      <color-class definition="N*N*L" name="Ed" x="21.6875" y="31.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="3.5625" y="33.0"/>
+      <color-var domain="N" name="n1" x="12.8125" y="29.0"/>
+      <color-var domain="N" name="n2" x="17.8125" y="29.0"/>
+      <color-var domain="N" name="n3" x="22.8125" y="29.0"/>
+      <color-class definition="{l1} is L1 + {l2} is L2  + {l3} is L3" name="L" x="3.5" y="31.0"/>
+    </nodes>
+    <edges>
+      <arc head="t_r" kind="INPUT" mult="&lt;n1,n1+n2,L1&gt;" mult-k="0.50009765625" mult-x="3.0" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n3,L1&gt;+&lt;n2,n1,L1&gt;" mult-k="0.9084960937500001" mult-x="-4.785779105254203" mult-y="0.11745077683839256" tail="t_r">
+        <point x="16.0" y="13.5"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n3&gt;" mult-k="1.12587890625" mult-x="-1.2834671599081418" mult-y="0.08843071584666617" tail="t_r">
+        <point x="16.5" y="21.0"/>
+      </arc>
+      <arc head="t_r" kind="INHIBITOR" mult="&lt;n3&gt;" mult-k="0.50009765625" mult-y="6.835937500007105E-4" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="dop2" show-fluid-cmd="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" name="Edge" x="20.0" y="10.0"/>
+      <place domain="N" label-x="1.0" label-y="2.0" name="Node" x="20.0" y="26.0"/>
+      <transition delay-x="27.0" delay-y="2.0" guard="n1!=n2" guard-x="3.5" guard-y="0.0" label-x="-2.0" label-y="0.0" name="t_r" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="20.55" y="18.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="5.4375" y="31.0"/>
+      <color-class definition="N*N*L" name="Ed" x="23.6875" y="33.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="5.5625" y="35.0"/>
+      <color-var domain="N" name="n1" x="14.8125" y="31.0"/>
+      <color-var domain="N" name="n2" x="19.8125" y="31.0"/>
+      <color-class definition="{l1} is L1 + {l2} is L2  + {l3} is L3" name="L" x="5.5" y="33.0"/>
+    </nodes>
+    <edges>
+      <arc head="t_r" kind="INPUT" mult="&lt;n1,n2,L1&gt;" mult-k="0.50009765625" mult-x="2.5" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="t_r" kind="INPUT" mult="&lt;n2&gt;" mult-y="0.0" tail="Node"/>
+      <arc head="t_r" kind="INHIBITOR" mult="2&lt;n2,n1,L1&gt;+&lt;All-n2,n2,All&gt;+&lt;n2,All-n2-n1,L1&gt;+&lt;n2,All-n2,All-L1&gt;" mult-k="2.03232421875" mult-x="-1.306529869526205" mult-y="-8.153967979955056" tail="Edge">
+        <point x="20.0" y="12.0"/>
+        <point x="16.5" y="15.0"/>
+      </arc>
+    </edges>
+  </gspn>
+  <gspn name="dpo3" show-fluid-cmd="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" name="Edge" x="18.0" y="8.0"/>
+      <place domain="N" label-x="1.0" label-y="2.0" name="Node" x="18.0" y="24.0"/>
+      <transition delay-x="23.0" guard="n1!=n2" guard-x="-5.0" guard-y="0.0" label-x="-2.0" label-y="0.0" name="t_r1" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="12.55" y="16.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="3.4375" y="29.0"/>
+      <color-class definition="N*N*L" name="Ed" x="21.6875" y="31.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="3.5625" y="33.0"/>
+      <color-var domain="N" name="n1" x="12.8125" y="29.0"/>
+      <color-var domain="N" name="n2" x="17.8125" y="29.0"/>
+      <color-var domain="N" name="n3" x="22.8125" y="29.0"/>
+      <color-class definition="{l1} is L1 + {l2} is L2  + {l3} is L3" name="L" x="3.5" y="31.0"/>
+      <transition delay-x="23.0" guard="n1==n2" guard-x="5.5" guard-y="0.0" label-x="2.5" label-y="0.0" name="t_r2" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="24.55" y="16.0"/>
+    </nodes>
+    <edges>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2,L1&gt;" mult-k="0.71005859375" mult-x="-2.0" mult-y="0.16015625" tail="t_r1"/>
+      <arc head="t_r1" kind="INPUT" mult="&lt;n1&gt;+&lt;n2&gt;" mult-k="0.68759765625" mult-x="-2.5" mult-y="-0.4992187500000007" tail="Node"/>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1&gt;+&lt;n2&gt;" mult-k="0.68759765625" mult-x="-2.2834671599081418" mult-y="0.08843071584666617" tail="t_r1"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2,L1&gt;" mult-k="0.71005859375" mult-x="2.2451171875" mult-y="0.16015625" tail="t_r2"/>
+      <arc head="t_r2" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.67998046875" mult-y="7.812499999992895E-4" tail="Node"/>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.6100585937499999" mult-x="0.6603515625000007" mult-y="0.6195312500000014" tail="t_r2"/>
+      <arc head="t_r1" kind="INPUT" mult="&lt;n3,n3,L1&gt;" mult-k="1.56494140625" mult-x="-2.195544017293681" mult-y="-0.048405317961172756" tail="Edge">
+        <point x="13.0" y="9.0"/>
+      </arc>
+      <arc head="t_r2" kind="INPUT" mult="&lt;n3,n3,L1&gt;" mult-k="2.62705078125" mult-x="2.0" mult-y="-4.2112255224147077E-4" tail="Edge">
+        <point x="20.5" y="9.0"/>
+        <point x="25.0" y="9.0"/>
+      </arc>
+    </edges>
+  </gspn>
+  <gspn name="dpo3_m0" show-fluid-cmd="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" marking="&lt;v1,v3,L1&gt;+&lt;v3,v3,L1&gt;" name="Edge" x="20.0" y="10.0"/>
+      <place domain="N" label-x="1.0" label-y="2.0" marking="&lt;v1+v2+v3&gt;" name="Node" x="20.0" y="26.0"/>
+      <transition delay-x="23.0" guard="n1!=n2" guard-x="-5.0" guard-y="0.0" label-x="-2.0" label-y="0.0" name="t_r1" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="14.55" y="18.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="5.4375" y="31.0"/>
+      <color-class definition="N*N*L" name="Ed" x="23.6875" y="33.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="5.5625" y="35.0"/>
+      <color-var domain="N" name="n1" x="14.8125" y="31.0"/>
+      <color-var domain="N" name="n2" x="19.8125" y="31.0"/>
+      <color-var domain="N" name="n3" x="24.8125" y="31.0"/>
+      <color-class definition="{l1} is L1 + {l2} is L2  + {l3} is L3" name="L" x="5.5" y="33.0"/>
+      <transition delay-x="23.0" guard="n1==n2" guard-x="5.5" guard-y="0.0" label-x="2.5" label-y="0.0" name="t_r2" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="26.55" y="18.0"/>
+    </nodes>
+    <edges>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2,L1&gt;" mult-k="0.71005859375" mult-x="-2.0" mult-y="0.16015625" tail="t_r1"/>
+      <arc head="t_r1" kind="INPUT" mult="&lt;n1&gt;+&lt;n2&gt;" mult-k="0.68759765625" mult-x="-2.5" mult-y="-0.4992187500000007" tail="Node"/>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1&gt;+&lt;n2&gt;" mult-k="0.68759765625" mult-x="-2.2834671599081418" mult-y="0.08843071584666617" tail="t_r1"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2,L1&gt;" mult-k="0.71005859375" mult-x="2.2451171875" mult-y="0.16015625" tail="t_r2"/>
+      <arc head="t_r2" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.67998046875" mult-y="7.812499999992895E-4" tail="Node"/>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.6100585937499999" mult-x="0.6603515625000007" mult-y="0.6195312500000014" tail="t_r2"/>
+      <arc head="t_r1" kind="INPUT" mult="&lt;n3,n3,L1&gt;" mult-k="1.56494140625" mult-x="-2.195544017293681" mult-y="-0.048405317961172756" tail="Edge">
+        <point x="15.0" y="11.0"/>
+      </arc>
+      <arc head="t_r2" kind="INPUT" mult="&lt;n3,n3,L1&gt;" mult-k="2.62705078125" mult-x="2.0" mult-y="-4.2112255224147077E-4" tail="Edge">
+        <point x="22.5" y="11.0"/>
+        <point x="27.0" y="11.0"/>
+      </arc>
+    </edges>
+  </gspn>
+  <gspn name="dpo4" show-fluid-cmd="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" name="Edge" x="22.0" y="12.0"/>
+      <place domain="N" label-x="1.0" label-y="2.0" name="Node" x="22.0" y="27.0"/>
+      <transition delay-x="23.0" guard="n3!=n2" guard-x="3.0" guard-y="0.0" label-x="-2.0" label-y="0.0" name="t_r1" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="16.55" y="20.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="7.4375" y="31.0"/>
+      <color-class definition="N*N*L" name="Ed" x="25.6875" y="33.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="7.5625" y="37.0"/>
+      <color-var domain="N" name="n1" x="16.8125" y="31.0"/>
+      <color-var domain="N" name="n2" x="21.8125" y="31.0"/>
+      <color-var domain="N" name="n3" x="26.8125" y="31.0"/>
+      <color-class definition="{l1} is L1 + {l2} is L2  + {l3} is L3" name="L" x="7.5" y="33.0"/>
+      <transition delay-x="23.0" guard="n3==n2" guard-x="3.0" guard-y="0.0" label-x="-2.5" label-y="0.0" name="t_r2" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="28.55" y="20.0"/>
+    </nodes>
+    <edges>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2+n3,L1&gt;" mult-k="0.6399414062500003" mult-x="-3.2603515624999986" mult-y="-0.3195312500000007" tail="t_r1"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n3,L1&gt;" mult-k="0.71005859375" mult-x="2.2451171875" mult-y="0.16015625" tail="t_r2"/>
+      <arc head="t_r1" kind="INPUT" mult="&lt;n1,n2+n3,L1&gt;" mult-k="0.7200195312500002" mult-x="-3.179882812499997" mult-y="-0.2601562500000014" tail="Edge"/>
+      <arc head="t_r2" kind="INPUT" mult="&lt;n1,n2,L1&gt;" mult-k="0.67998046875" mult-x="2.0" mult-y="-4.2112255224147077E-4" tail="Edge"/>
+    </edges>
+  </gspn>
+  <gspn name="noninjrnew" show-fluid-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="Ed" label-x="-2.0" label-y="-2.0" name="Edge" x="20.0" y="12.0"/>
+      <place domain="N" label-x="1.0" label-y="-1.5" name="Node" x="40.0" y="12.0"/>
+      <transition delay="1" delay-x="-17.0" delay-y="4.0" guard="n4!=n5" guard-x="-2.0" guard-y="1.0" label-x="-2.5" label-y="-1.0" name="t_r" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="20.55" y="21.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="10.4375" y="42.0"/>
+      <color-class definition="N*N*L" name="Ed" x="34.6875" y="46.0"/>
+      <constant consttype="INTEGER" name="MAX" value="5" x="11.5625" y="49.0"/>
+      <color-var domain="N" name="n1" x="10.8125" y="44.0"/>
+      <color-var domain="N" name="n2" x="16.8125" y="44.0"/>
+      <color-var domain="N" name="n3" x="22.8125" y="44.0"/>
+      <color-class definition="{lb1} is L1 + {lb2} is L2  + {lb3} is L3" name="L" x="24.5" y="42.0"/>
+      <color-var domain="N" name="n4" x="28.8125" y="44.0"/>
+      <color-var domain="N" name="n5" x="33.8125" y="44.0"/>
+      <place label-x="2.5" label-y="-0.5" name="Trigger" x="20.0" y="27.0"/>
+      <place domain="N" label-x="5.0" label-y="0.0" name="ToMerge" x="29.0" y="27.0"/>
+      <place domain="N" label-x="4.0" label-y="0.0" name="Merge" x="40.0" y="27.0"/>
+      <transition guard="x == n3 || x ==n2" guard-x="-3.5" guard-y="1.0" label-x="2.5" label-y="1.0" name="reconnectS" rotation="4.71238898038469" type="IMM" x="20.85" y="38.0"/>
+      <color-var domain="N" name="y" x="39.25" y="44.0"/>
+      <color-var domain="N" name="x" x="23.25" y="46.0"/>
+      <color-var domain="L" name="l" x="28.4375" y="46.0"/>
+      <transition guard="y == n3 || y ==n2" guard-x="3.0" guard-y="1.0" label-x="-3.0" label-y="1.0" name="reconnectT" rotation="4.71238898038469" type="IMM" x="40.85" y="38.0"/>
+      <transition label-x="2.0" label-y="1.0" name="end" rotation="4.71238898038469" type="IMM" x="40.85" y="21.0"/>
+      <place marking="1" name="Start" x="9.0" y="21.0"/>
+    </nodes>
+    <edges>
+      <arc head="t_r" kind="INPUT" mult="&lt;n1,n1,L2&gt;+&lt;n1,n2,L1&gt;+&lt;n1,n3,L1&gt;" mult-k="1.0715820312500002" mult-x="-10.719303379366686" mult-y="-0.23261824100300998" tail="Edge">
+        <point x="18.5" y="18.0"/>
+      </arc>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n4,L1&gt;+&lt;n5,n1,L2&gt;" mult-k="1.3483398437499998" mult-x="-14.693406485427357" mult-y="-0.04813167376924454" tail="t_r">
+        <point x="23.5" y="17.5"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1+n2+n3+n4+n5&gt;" mult-k="1.43837890625" mult-x="-0.07754485630952601" mult-y="-0.651133490904793" tail="t_r">
+        <point x="29.5" y="13.0"/>
+      </arc>
+      <arc head="t_r" kind="INPUT" mult="&lt;n1&gt;+&lt;n2&gt;+&lt;n3&gt;" mult-k="0.8036132812500001" mult-x="2.482957122442812" mult-y="0.7627821581678909" tail="Node">
+        <point x="29.0" y="22.0"/>
+      </arc>
+      <arc head="t_r" kind="INHIBITOR" mult="&lt;n4&gt;+&lt;n5&gt;" mult-k="0.39169921875" mult-x="-0.5888671875" mult-y="-0.94287109375" tail="Node"/>
+      <arc head="ToMerge" kind="OUTPUT" mult="&lt;n2+n3&gt;" mult-k="0.43583984374999996" mult-x="-1.5" mult-y="0.5" tail="t_r"/>
+      <arc head="reconnectS" kind="INPUT" tail="Trigger"/>
+      <arc head="Trigger" kind="OUTPUT" tail="reconnectS"/>
+      <arc head="Merge" kind="OUTPUT" mult="&lt;n4&gt;" mult-k="0.35341796875" mult-x="0.4478515624999986" mult-y="-0.3794921874999986" tail="t_r"/>
+      <arc head="reconnectS" kind="INPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.14853515625000002" mult-x="-1.99951171875" mult-y="-4.8828125E-4" tail="ToMerge"/>
+      <arc head="ToMerge" kind="OUTPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.42333984375" mult-x="-1.4852539062500014" mult-y="-0.8088867187499993" tail="reconnectS"/>
+      <arc head="reconnectS" kind="INPUT" mult="&lt;n4&gt;" mult-k="0.6958007812500001" mult-x="0.5998046875000007" mult-y="0.7000976562500014" tail="Merge"/>
+      <arc head="reconnectS" kind="INPUT" mult="&lt;x,y,l&gt;" mult-k="1.8170898437499998" mult-x="1.5" mult-y="0.28672690531629286" tail="Edge">
+        <point x="17.0" y="14.5"/>
+        <point x="17.0" y="36.5"/>
+      </arc>
+      <arc head="reconnectT" kind="INPUT" tail="Trigger"/>
+      <arc head="reconnectT" kind="INPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.68173828125" mult-x="1.1288085937500014" mult-y="-1.0833007812499993" tail="ToMerge"/>
+      <arc head="ToMerge" kind="OUTPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.7727539062500001" mult-x="1.2506835937500007" mult-y="-0.7489257812500014" tail="reconnectT"/>
+      <arc head="reconnectT" kind="INPUT" mult="&lt;n4&gt;" mult-k="0.7272460937500002" mult-y="0.25048828125" tail="Merge"/>
+      <arc head="Merge" kind="OUTPUT" mult="&lt;n4&gt;" mult-k="0.7727539062500001" mult-y="0.4002929687500014" tail="reconnectT"/>
+      <arc head="reconnectT" kind="INPUT" mult="&lt;x,y,l&gt;" mult-k="3.845410156250001" mult-x="-1.5" mult-y="1.3864837157484544E-5" tail="Edge">
+        <point x="24.5" y="13.0"/>
+        <point x="25.5" y="10.5"/>
+        <point x="46.0" y="10.5"/>
+        <point x="46.0" y="36.5"/>
+      </arc>
+      <arc head="Trigger" kind="OUTPUT" mult-k="0.5344726562500001" tail="reconnectT"/>
+      <arc head="Merge" kind="OUTPUT" mult="&lt;n4&gt;" mult-k="0.8637695312500001" mult-x="-0.6033203124999993" mult-y="-0.6331054687500028" tail="reconnectS"/>
+      <arc head="end" kind="INPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.6432617187500002" mult-x="1.6588867187499972" mult-y="0.4587890624999993" tail="ToMerge"/>
+      <arc head="end" kind="INPUT" mult="&lt;n2&gt;+&lt;n3&gt;" mult-k="0.44443359375" mult-x="2.0" mult-y="0.49931640625000107" tail="Node"/>
+      <arc head="end" kind="INHIBITOR" mult="&lt;All-n2-n3,n2+n3,All&gt;+&lt;n2+n3,All,All&gt;" mult-k="0.22919921875000002" mult-x="-0.083984375" mult-y="-7.562792968749999" tail="Edge"/>
+      <arc head="end" kind="INPUT" mult-k="1.40029296875" tail="Trigger">
+        <point x="25.5" y="28.0"/>
+        <point x="35.5" y="22.0"/>
+      </arc>
+      <arc head="end" kind="INPUT" mult="&lt;n4&gt;" mult-k="0.33330078125000007" mult-y="-0.5001953125000007" tail="Merge"/>
+      <arc head="t_r" kind="INPUT" tail="Start"/>
+      <arc head="Start" kind="OUTPUT" tail="end">
+        <point x="47.5" y="22.0"/>
+        <point x="47.5" y="6.5"/>
+        <point x="10.0" y="6.5"/>
+      </arc>
+      <arc head="Trigger" kind="OUTPUT" tail="t_r"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n4,y,l&gt;" mult-k="1.2497070312499998" mult-x="-2.0" mult-y="0.36864947005511794" tail="reconnectS">
+        <point x="13.0" y="39.0"/>
+        <point x="13.0" y="13.0"/>
+      </arc>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;x,n4,l&gt;" mult-k="1.2331054687500003" mult-x="1.5" mult-y="0.49737956828157337" tail="reconnectT">
+        <point x="48.5" y="39.0"/>
+        <point x="48.5" y="9.0"/>
+        <point x="21.0" y="9.0"/>
+      </arc>
+    </edges>
+  </gspn>
+  <gspn name="other_rule" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="Ed" label-y="-2.0" marking="&lt;v1,v2,L1&gt;+&lt;v2,v2,L1&gt;" name="Edge" x="21.0" y="7.0"/>
+      <place domain="N" label-x="1.0" label-y="2.0" marking="&lt;v1+v2&gt;+&lt;v3&gt;" name="Node" x="21.0" y="21.0"/>
+      <transition guard-x="-3.5" guard-y="0.0" label-x="2.0" label-y="0.0" name="R1" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="16.55" y="14.0"/>
+      <color-class definition="v{1..MAX}" name="N" x="30.4375" y="29.0"/>
+      <color-class definition="N*N*L" name="Ed" x="10.6875" y="31.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="4.5625" y="29.0"/>
+      <color-var domain="N" name="n1" x="4.8125" y="27.0"/>
+      <color-var domain="N" name="n2" x="10.8125" y="27.0"/>
+      <color-var domain="N" name="n3" x="16.8125" y="27.0"/>
+      <color-class definition="{l1} is L1 + {l2} is L2  + {l3} is L3" name="L" x="10.5" y="29.0"/>
+      <transition guard="n1!=n2" guard-x="3.5" guard-y="0.0" label-x="-3.0" label-y="0.0" name="R1bis" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="26.55" y="14.0"/>
+    </nodes>
+    <edges>
+      <arc head="Edge" kind="OUTPUT" mult="2&lt;n3,n1,L2&gt;" mult-k="0.4188476562500001" mult-x="-5.59423828125" mult-y="-0.06806640624999893" tail="R1"/>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.33779296875" mult-x="-1.33544921875" mult-y="1.3974609375" tail="R1"/>
+      <arc head="R1" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.32431640625" mult-x="-1.29052734375" mult-y="1.1932617187500014" tail="Node"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n3,n2,L2&gt;+&lt;n3,n1,L2&gt;" mult-k="0.4188476562500001" mult-x="7.99951171875" mult-y="-6.835937500007105E-4" tail="R1bis"/>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1+n2&gt;" mult-k="0.24326171875" mult-x="1.73095703125" mult-y="1.57666015625" tail="R1bis"/>
+      <arc head="R1bis" kind="INPUT" mult="&lt;n1+n2&gt;" mult-k="0.33779296875" mult-x="1.884765625" mult-y="1.4228515625" tail="Node"/>
+      <arc head="R1" kind="INPUT" mult="&lt;n3,n3,L1&gt;" mult-k="1.3622070312499996" mult-x="-2.0" mult-y="5.262249275723718E-4" tail="Edge">
+        <point x="17.0" y="8.0"/>
+      </arc>
+      <arc head="R1bis" kind="INPUT" mult="&lt;n3,n3,L1&gt;" mult-k="1.3622070312499996" mult-x="2.5" mult-y="5.262249275723718E-4" tail="Edge">
+        <point x="27.0" y="8.0"/>
+      </arc>
+    </edges>
+  </gspn>
+  <measures gspn-name="r1new" name="Measures">
+    <assignments/>
+    <greatspn/>
+    <formulas>
+      <formula language="ALL"/>
+    </formulas>
+  </measures>
+  <gspn name="fromR1" show-fluid-cmd="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" marking="&lt;nd1,nd2&gt;+&lt;nd2,nd3&gt;+&lt;nd2,nd1&gt;+&lt;nd3,nd3&gt;+&lt;nd4,nd4&gt;" name="Edge" x="16.0" y="7.0"/>
+      <place domain="N" label-y="-2.0" marking="&lt;nd1+nd2+nd3+nd4&gt;" name="Node" x="30.0" y="7.0"/>
+      <transition label-y="1.5" name="R2" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="16.55" y="16.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="5.4375" y="21.0"/>
+      <color-class definition="N*N" name="E" x="16.25" y="21.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="5.5625" y="25.0"/>
+      <color-var domain="N" name="n1" x="5.8125" y="23.0"/>
+      <color-var domain="N" name="n2" x="10.9375" y="23.0"/>
+      <color-var domain="N" name="n3" x="15.9375" y="23.0"/>
+    </nodes>
+    <edges>
+      <arc head="R2" kind="INHIBITOR" mult="&lt;n1,All&gt;+&lt;All-n1,n1&gt;" mult-x="-6.5" mult-y="-0.09181461809498792" tail="Edge">
+        <point x="17.0" y="15.0"/>
+      </arc>
+      <arc head="R2" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.49091796874999993" mult-x="1.2947265624999993" mult-y="1.4176757812500007" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="fromR2" show-fluid-cmd="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" marking="&lt;nd1,nd2&gt;+&lt;nd2,nd3&gt;+&lt;nd2,nd4&gt;+&lt;nd3,nd1&gt;" name="Edge" x="16.0" y="7.0"/>
+      <place domain="N" label-y="-2.0" marking="&lt;nd1+nd2+nd3+nd4&gt;" name="Node" x="30.0" y="7.0"/>
+      <transition label-y="1.5" name="R3" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="16.55" y="16.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="5.4375" y="21.0"/>
+      <color-class definition="N*N" name="E" x="16.25" y="21.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="5.5625" y="25.0"/>
+      <color-var domain="N" name="n1" x="5.8125" y="23.0"/>
+      <color-var domain="N" name="n2" x="10.9375" y="23.0"/>
+      <color-var domain="N" name="n3" x="15.9375" y="23.0"/>
+    </nodes>
+    <edges>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n1&gt;" mult-k="1.01455078125" mult-x="-3.0" mult-y="2.052007558361879E-5" tail="R3">
+        <point x="17.0" y="12.5"/>
+      </arc>
+      <arc head="R3" kind="INHIBITOR" mult="&lt;n1,All&gt;" mult-x="2.1940684999338647" mult-y="-0.06392171436129779" tail="Edge">
+        <point x="20.5" y="12.0"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.37548828125" mult-x="2.0" mult-y="2.0" tail="R3"/>
+      <arc head="R3" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.34248046874999993" mult-x="2.1982421875" mult-y="2.2215820312499996" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="fromR3" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" name="Edge" x="18.0" y="6.0"/>
+      <place domain="N" label-y="-2.0" name="Node" x="31.0" y="6.0"/>
+      <transition guard-x="-3.0" guard-y="0.0" label-y="1.5" name="R5" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="18.55" y="15.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="3.4375" y="20.0"/>
+      <color-class definition="N*N" name="E" x="14.25" y="20.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="7.5625" y="24.0"/>
+      <color-var domain="N" name="n1" x="23.8125" y="20.0"/>
+      <color-var domain="N" name="n2" x="28.8125" y="20.0"/>
+    </nodes>
+    <edges>
+      <arc head="R5" kind="INPUT" mult="&lt;n1,n2&gt;+&lt;n2,n2&gt;" mult-k="0.33330078125000007" mult-x="-6.5" mult-y="-4.8828125E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n1&gt;" mult-k="1.8260742187499996" mult-x="1.3825325444743441" mult-y="-0.07163901630727665" tail="R5">
+        <point x="20.74037462941424" y="13.389438055878639"/>
+        <point x="21.5" y="11.5"/>
+      </arc>
+      <arc head="R5" kind="INPUT" mult="&lt;n2&gt;" mult-x="0.5" tail="Node"/>
+      <arc head="R5" kind="INHIBITOR" mult="&lt;All-n1-n2,n2&gt;+&lt;n2,All-n2&gt;+&lt;n1,All-n2&gt;" mult-k="1.4266601562499996" mult-x="-8.816291937382843" mult-y="0.1633431408886068" tail="Edge">
+        <point x="17.0" y="11.5"/>
+      </arc>
+    </edges>
+  </gspn>
+  <gspn name="fromR4" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" name="Edge" x="14.0" y="4.0"/>
+      <place domain="N" label-y="-2.0" name="Node" x="28.0" y="4.0"/>
+      <transition guard-x="-3.0" guard-y="0.0" label-y="1.5" name="R4" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="14.55" y="13.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="3.4375" y="18.0"/>
+      <color-class definition="N*N" name="E" x="14.25" y="18.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="3.5625" y="22.0"/>
+      <color-var domain="N" name="n1" x="3.8125" y="20.0"/>
+      <color-var domain="N" name="n2" x="8.9375" y="20.0"/>
+    </nodes>
+    <edges>
+      <arc head="R4" kind="INPUT" mult="&lt;n1,n1&gt;" mult-k="0.50009765625" mult-x="1.5" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2&gt;+&lt;n2,n1&gt;" mult-k="1.0081054687500002" mult-x="-3.7069725633667616" mult-y="3.1238920878529086E-4" tail="R4">
+        <point x="12.0" y="9.5"/>
+      </arc>
+      <arc head="R4" kind="INHIBITOR" mult="&lt;n2&gt;" mult-y="0.5" tail="Node"/>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n2&gt;" tail="R4">
+        <point x="29.0" y="14.0"/>
+      </arc>
+    </edges>
+  </gspn>
+  <gspn name="fromR5" show-fluid-cmd="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" marking="&lt;nd1,nd2&gt;+&lt;nd1,nd3&gt;+&lt;nd4,nd1&gt;" name="Edge" x="16.0" y="7.0"/>
+      <place domain="N" label-y="-2.0" marking="&lt;nd1+nd2+nd3+nd4&gt;" name="Node" x="30.0" y="7.0"/>
+      <transition delay-x="-11.0" delay-y="10.5" guard-x="-3.0" guard-y="0.0" label-y="1.5" name="R1" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="16.55" y="16.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="5.4375" y="21.0"/>
+      <color-class definition="N*N" name="E" x="16.25" y="21.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="5.5625" y="25.0"/>
+      <color-var domain="N" name="n1" x="5.8125" y="23.0"/>
+      <color-var domain="N" name="n2" x="10.9375" y="23.0"/>
+      <color-var domain="N" name="n3" x="15.9375" y="23.0"/>
+      <transition delay-x="-12.0" delay-y="10.5" label-y="1.5" name="R3" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="30.55" y="16.0"/>
+      <constant consttype="INTEGER" name="copy_MAX" value="10" x="14.5625" y="25.0"/>
+    </nodes>
+    <edges>
+      <arc head="R1" kind="INPUT" mult="&lt;n1,n2&gt;+&lt;n2,n3&gt;" mult-k="0.50009765625" mult-x="-9.0" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2&gt;+&lt;n2,n3&gt;+&lt;n1,n3&gt;" mult-x="-5.975217859126911" mult-y="-0.2128267886903643" tail="R1">
+        <point x="14.0" y="12.5"/>
+      </arc>
+      <arc head="R1" kind="INHIBITOR" mult="&lt;n1,n3&gt;" mult-x="-0.04609983901845638" mult-y="2.1808502414723137" tail="Edge">
+        <point x="20.0" y="12.5"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1+n2+n3&gt;" mult-k="0.20947265625000003" mult-x="1.5673828125" mult-y="1.88525390625" tail="R1"/>
+      <arc head="R1" kind="INPUT" mult="&lt;n1+n2+n3&gt;" mult-k="0.24189453125" mult-x="-1.2052734375000007" mult-y="-1.5823242187499993" tail="Node"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n1&gt;" mult-k="0.8338867187500001" mult-x="1.5773906238309792" mult-y="-0.11507291744601389" tail="R3">
+        <point x="25.0" y="13.0"/>
+      </arc>
+      <arc head="R3" kind="INHIBITOR" mult="&lt;n1,All&gt;" mult-k="1.06884765625" mult-x="0.4997779274690437" tail="Edge">
+        <point x="26.0" y="17.0"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n1&gt;" mult-k="0.27783203125" mult-x="2.0" mult-y="4.8828125E-4" tail="R3"/>
+      <arc head="R3" kind="INPUT" mult="&lt;n1&gt;" mult-k="0.38896484374999996" mult-x="2.0" mult-y="-6.835937499989342E-4" tail="Node"/>
+    </edges>
+  </gspn>
+  <gspn name="fromR6" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place domain="E" label-y="-2.0" name="Edge" x="14.0" y="4.0"/>
+      <place domain="N" label-y="-2.0" name="Node" x="28.0" y="4.0"/>
+      <transition guard-x="-3.0" guard-y="0.0" label-y="1.5" name="R6" nservers-x="0.5" rotation="1.5707963267948966" type="EXP" x="14.55" y="13.0"/>
+      <color-class definition="nd{1..MAX}" name="N" x="3.4375" y="18.0"/>
+      <color-class definition="N*N" name="E" x="14.25" y="18.0"/>
+      <constant consttype="INTEGER" name="MAX" value="10" x="3.5625" y="22.0"/>
+      <color-var domain="N" name="n1" x="3.8125" y="20.0"/>
+      <color-var domain="N" name="n2" x="8.9375" y="20.0"/>
+      <color-var domain="N" name="n3" x="13.9375" y="20.0"/>
+    </nodes>
+    <edges>
+      <arc head="R6" kind="INPUT" mult="&lt;n1,n2&gt;+&lt;n2,n1&gt;" mult-k="0.27783203125" mult-x="3.0" mult-y="-8.789062499996447E-4" tail="Edge"/>
+      <arc head="Edge" kind="OUTPUT" mult="&lt;n1,n2&gt;+&lt;n2,n3&gt;+&lt;n3,n1&gt;" mult-k="0.52958984375" mult-x="-5.206972563366762" mult-y="3.1238920878529086E-4" tail="R6">
+        <point x="12.0" y="9.5"/>
+      </arc>
+      <arc head="Node" kind="OUTPUT" mult="&lt;n3&gt;" mult-k="0.35009765625" mult-x="0.5841796874999972" mult-y="0.8030273437500011" tail="R6"/>
+      <arc head="R6" kind="INHIBITOR" mult="&lt;n3&gt;" mult-k="0.60458984375" tail="Node">
+        <point x="29.0" y="14.0"/>
+      </arc>
+    </edges>
+  </gspn>
+</project>
